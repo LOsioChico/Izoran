@@ -9,6 +9,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "standard-with-typescript",
     "eslint-config-prettier"
   ],
@@ -18,6 +19,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-refresh"],
+  "plugins": ["react", "react-refresh", "@tanstack/query"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {}
 }
