@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'GeorgiaProW01-Regular';
+    font-family: 'Roboto', sans-serif;
+    background-color: #202125;
+    color: white;
   }
 }
