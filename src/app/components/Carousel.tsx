@@ -26,10 +26,7 @@ export const Carousel: React.FC<CarouselProps> = ({ animes, title }) => {
       >
         {animes?.map((anime) => (
           <SwiperSlide key={anime.id}>
-            <div
-              className='flex items-center justify-center'
-              data-testid='anime-card'
-            >
+            <div className='flex items-center justify-center'>
               <AnimeCard anime={anime} />
             </div>
           </SwiperSlide>

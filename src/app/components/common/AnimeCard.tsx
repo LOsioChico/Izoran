@@ -10,6 +10,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
     <div
       key={anime.id}
       className='group relative h-72 w-56 cursor-pointer select-none overflow-hidden rounded-md bg-darkLight'
+      data-testid='anime-card'
     >
       <img
         src={anime.image}
