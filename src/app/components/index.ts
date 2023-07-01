@@ -1,1 +1,2 @@
-export * from './Carousel'
+export * from './AnimeCardCarousel'
+export * from './BannerCarousel'
