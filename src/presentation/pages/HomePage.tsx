@@ -1,10 +1,13 @@
-import { TrendingNow } from '@/app/containers/Carousels'
+import { PopularBanner, TrendingNow } from '@/app/containers/Carousels'
 
 export const HomePage: React.FC = () => {
   return (
-    <div className='h-[91vh] px-8'>
-      <div className='h-20' />
-      <TrendingNow />
-    </div>
+    <>
+      <div className='pt-20' />
+      <div className='relative'>
+        <PopularBanner />
+        <TrendingNow />
+      </div>
+    </>
   )
 }
