@@ -1,4 +1,4 @@
-import { useAnimeTrending } from '@/hooks'
+import { useAnimeTrending } from '@/domain/usecases'
 
 import { Carousel } from '@/app/components'
 import 'swiper/css'
