@@ -1,2 +1,2 @@
 export * from './ReactQueryProvider'
-export * from './index'
+export * from './store'
