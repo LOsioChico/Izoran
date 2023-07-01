@@ -8,6 +8,7 @@ export interface Anime {
   id: string
   title: Title
   image: string
+  trailer: Trailer
   description: string
   status: Status
   cover: string
@@ -31,4 +32,10 @@ export interface Title {
   english: null | string
   native: string
   userPreferred: string
+}
+
+export interface Trailer {
+  id: string
+  site: string
+  thumbnail: string
 }
