@@ -1,4 +1,4 @@
-import { type Anime } from '@/types/AnimeTrending'
+import { type Anime } from '@/domain/models/Anime'
 import { BsDot, BsPlayCircleFill } from 'react-icons/bs'
 
 interface AnimeCardProps {
@@ -9,7 +9,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
   return (
     <div
       key={anime.id}
-      className='group relative h-72 w-56 cursor-pointer select-none overflow-hidden rounded-md bg-darkLight'
+      className='group relative h-72 w-52 cursor-pointer select-none overflow-hidden rounded-md bg-dark'
       data-testid='anime-card'
     >
       <img
