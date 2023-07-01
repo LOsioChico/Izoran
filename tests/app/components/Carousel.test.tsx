@@ -1,5 +1,5 @@
 import { Carousel } from '@/app/components'
-import { type Anime } from '@/types/AnimeTrending'
+import { type Anime } from '@/domain/models/Anime'
 import { render } from '@testing-library/react'
 
 describe('Should render the Carousel', () => {
