@@ -1,18 +1,13 @@
+import { AnimeCardCarousel } from '@/app/components'
 import { useAnimeTrending } from '@/domain/usecases'
-
-import { Carousel } from '@/app/components'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
 
 export const TrendingNow: React.FC = () => {
   const { trending } = useAnimeTrending()
-  if (trending == null) return null
+  if (trending === undefined) return null
 
   return (
-    <div className='flex items-center justify-center'>
-      <Carousel animes={trending} title='Trending Now' />
+    <div className='relative bottom-20 z-10 flex w-full items-center justify-center px-8 pb-6'>
+      <AnimeCardCarousel animes={trending} title='Trending Now' />
     </div>
   )
 }
