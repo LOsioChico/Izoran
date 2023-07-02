@@ -1,2 +1,2 @@
 export * from './ReactQueryProvider'
-export * from './store'
+export * from './useAuthStore'
