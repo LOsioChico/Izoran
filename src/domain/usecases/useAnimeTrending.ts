@@ -8,7 +8,7 @@ interface UseAnimeTrending {
 }
 
 export const useAnimeTrending = (): UseAnimeTrending => {
-  const useAnimeTrendingQuery = useQuery({
+  const useAnimeTrendingQuery = useQuery<AnimeResponse>({
     queryKey: ['trendingAnime'],
     queryFn: async () => await AnimeRepository.getTrending(),
   })

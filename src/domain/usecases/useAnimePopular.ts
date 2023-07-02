@@ -8,7 +8,7 @@ interface UseAnimePopular {
 }
 
 export const useAnimePopular = (): UseAnimePopular => {
-  const useAnimePopularQuery = useQuery({
+  const useAnimePopularQuery = useQuery<AnimeResponse>({
     queryKey: ['popularAnime'],
     queryFn: async () => await AnimeRepository.getPopular(),
   })
