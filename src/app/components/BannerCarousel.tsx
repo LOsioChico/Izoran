@@ -1,5 +1,5 @@
 import { type Anime } from '@/domain/models'
-import { Autoplay, Navigation } from 'swiper'
+import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css/bundle'
@@ -13,13 +13,13 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ anime }) => {
     <div className='relative h-[60vh]'>
       <div className='h-full bg-red-50'>
         <Swiper
-          modules={[Autoplay, Navigation]}
+          modules={[Autoplay]}
+          slidesPerView={1}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          navigation
           className='h-full'
         >
           {anime?.map((anime) => (
@@ -29,8 +29,9 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ anime }) => {
                   src={anime.cover}
                   alt={anime.title.userPreferred}
                   className='h-full w-full object-cover object-center'
+                  loading='lazy'
                 />
-                <div className='from-dark absolute left-0 top-0 h-full w-full bg-gradient-to-t to-transparent' />
+                <div className='absolute left-0 top-0 h-full w-full bg-gradient-to-t from-dark to-transparent' />
               </div>
             </SwiperSlide>
           ))}

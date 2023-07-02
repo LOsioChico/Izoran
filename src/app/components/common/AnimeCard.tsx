@@ -16,6 +16,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
         src={anime.image}
         alt={anime.title.userPreferred}
         className='h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:scale-105'
+        loading='lazy'
       />
       <div className='absolute bottom-0 left-0 right-0 z-10 p-2'>
         <h4
