@@ -6,7 +6,7 @@ export const PopularBanner: React.FC = () => {
   if (popular === undefined) return null
 
   return (
-    <div>
+    <div className='select-none' draggable={false}>
       <BannerCarousel anime={popular} />
     </div>
   )
