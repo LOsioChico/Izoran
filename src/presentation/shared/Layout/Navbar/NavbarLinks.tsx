@@ -7,7 +7,7 @@ interface NavbarLinksProps {
 
 export const NavbarLinks: React.FC<NavbarLinksProps> = ({ link, title }) => {
   return (
-    <Link to={link} className='duration-500 hover:text-white'>
+    <Link to={link} className='select-none duration-500 hover:text-white'>
       {title}
     </Link>
   )
