@@ -12,10 +12,9 @@
     "test:ui": "vitest --ui --coverage"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
     "@supabase/supabase-js": "^2.26.0",
-    "@tanstack/eslint-plugin-query": "^4.29.9",
     "@tanstack/react-query": "^4.29.19",
-    "@tanstack/react-query-devtools": "^4.29.19",
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,9 +22,12 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.0",
     "swiper": "^9.4.1",
+    "zod": "^3.21.4",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^4.29.19",
+    "@tanstack/eslint-plugin-query": "^4.29.9",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
