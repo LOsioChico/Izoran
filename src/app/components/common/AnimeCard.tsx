@@ -36,7 +36,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
         </div>
       </div>
       <div
-        className='group-hover: absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-darkLight
+        className='group-hover: absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black to-transparent
       p-2 transition-all duration-500 ease-in-out group-hover:h-full'
       />
       <div
