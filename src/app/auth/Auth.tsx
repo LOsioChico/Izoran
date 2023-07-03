@@ -1,21 +1,45 @@
-import { useAuthStore } from '@/infrastructure/state'
-import { RegisterForm } from '.'
+import { AuthType, useAuthStore } from '@/infrastructure/state'
+import { useEffect } from 'react'
+import { ForgotPassword, Join, Login, Register } from '.'
 
 export const Auth: React.FC = () => {
-  const { setIsModalOpen, isModalOpen } = useAuthStore()
+  const { isModalOpen, authType, setAuthType } = useAuthStore()
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') {
+        setAuthType(AuthType.CLOSE)
+      }
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => {
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [setAuthType])
+
   return (
     <>
       <div
-        className='fixed z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-70 duration-300 ease-in-out'
+        className='fixed z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-70 duration-500 ease-in-out'
         onClick={() => {
-          setIsModalOpen(false)
+          setAuthType(AuthType.CLOSE)
         }}
         style={{
           opacity: isModalOpen ? 1 : 0,
           visibility: isModalOpen ? 'visible' : 'hidden',
         }}
       >
-        <RegisterForm />
+        <div
+          className='z-50'
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+        >
+          {authType === AuthType.REGISTER && <Register />}
+          {authType === AuthType.LOGIN && <Login />}
+          {authType === AuthType.FORGOT_PASSWORD && <ForgotPassword />}
+          {authType === AuthType.JOIN && <Join />}
+        </div>
       </div>
     </>
   )
