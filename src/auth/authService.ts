@@ -18,6 +18,13 @@ export const authService = {
     }
   },
 
+  forgotPassword: async ({ email }: { email: string }) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email)
+    if (error != null) {
+      throw error
+    }
+  },
+
   signOut: async () => {
     const { error } = await supabase.auth.signOut()
     if (error != null) {
