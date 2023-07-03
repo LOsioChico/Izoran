@@ -27,6 +27,7 @@
   },
   "rules": {
     "@typescript-eslint/triple-slash-reference": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "@typescript-eslint/no-misused-promises": "off"
   }
 }
