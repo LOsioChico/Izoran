@@ -21,6 +21,22 @@ export interface Anime {
   type: 'TV' | 'ONA'
 }
 
+export interface AnimeRecentResponse extends AnimeResponse {
+  totalPage: number
+  totalResults: number
+}
+
+export interface AnimeRecent
+  extends Pick<
+    Anime,
+    'id' | 'title' | 'image' | 'rating' | 'color' | 'genres' | 'type'
+  > {
+  malId: number
+  episodeId: string
+  episodeTitle: string
+  episodeNumber: number
+}
+
 export enum Status {
   Completed = 'Completed',
   NotYetAired = 'Not yet aired',
