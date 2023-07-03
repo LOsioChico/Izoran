@@ -2,9 +2,10 @@ import { type User } from '@supabase/supabase-js'
 import { create } from 'zustand'
 
 export enum AuthType {
-  JOIN = 'JOIN',
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
+  FORGOT_PASSWORD = 'FORGOT_PASSWORD',
+  JOIN = 'JOIN',
   CLOSE = 'CLOSE',
 }
 
