@@ -1,12 +1,14 @@
-import { authService, type SignIn } from '@/auth'
+import { authService } from '@/auth'
 import {
   LoginValidationSchema,
   type LoginFormValues,
 } from '@/domain/validations'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useEffect } from 'react'
 import {
   useForm,
   type FieldErrors,
+  type SubmitHandler,
   type UseFormHandleSubmit,
   type UseFormRegister,
 } from 'react-hook-form'
@@ -15,16 +17,29 @@ export const useLogin = (): UseLogin => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    clearErrors,
+    setError,
+    formState: { errors, isSubmitting },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(LoginValidationSchema),
+    mode: 'onBlur',
   })
 
-  const onSubmit = async (data: SignIn): Promise<void> => {
+  useEffect(() => {
+    return () => {
+      clearErrors()
+    }
+  }, [clearErrors])
+
+  const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     try {
       await authService.signIn(data)
     } catch (error) {
-      if (error instanceof Error) throw new Error(error.message)
+      if (error instanceof Error)
+        setError('email', {
+          type: 'manual',
+          message: error.message,
+        })
     }
   }
 
@@ -33,12 +48,14 @@ export const useLogin = (): UseLogin => {
     handleSubmit,
     onSubmit,
     errors,
+    isSubmitting,
   }
 }
 
 interface UseLogin {
   register: UseFormRegister<LoginFormValues>
   handleSubmit: UseFormHandleSubmit<LoginFormValues>
-  onSubmit: (data: SignIn) => Promise<void>
+  onSubmit: SubmitHandler<LoginFormValues>
   errors: FieldErrors<LoginFormValues>
+  isSubmitting: boolean
 }
