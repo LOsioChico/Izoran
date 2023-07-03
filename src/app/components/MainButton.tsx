@@ -1,15 +1,17 @@
 interface MainButtonProps {
-  text: string
+  children: React.ReactNode | string
   variant: 'white' | 'black'
   Icon?: React.FC
   onClick?: () => void
+  disabled?: boolean
 }
 
 export const MainButton: React.FC<MainButtonProps> = ({
-  text,
+  children,
   variant,
   Icon,
   onClick,
+  disabled,
 }) => {
   return (
     <button
@@ -22,9 +24,10 @@ export const MainButton: React.FC<MainButtonProps> = ({
       }
       `}
       onClick={onClick}
+      disabled={disabled}
     >
       {Icon != null && <Icon />}
-      {text}
+      {children}
     </button>
   )
 }
