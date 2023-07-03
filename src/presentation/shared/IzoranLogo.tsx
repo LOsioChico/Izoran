@@ -1,6 +1,15 @@
+import { useNavigate } from 'react-router-dom'
+
 export const IzoranLogo: React.FC = () => {
+  const navigate = useNavigate()
   return (
-    <svg height='145' width='655'>
+    <svg
+      height='145'
+      width='655'
+      onClick={() => {
+        navigate('/')
+      }}
+    >
       <path
         id='path260668'
         d='M 376.43244,-50.4 V 0 h 3.672 v -50.4 z'
