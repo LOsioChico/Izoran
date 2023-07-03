@@ -4,11 +4,11 @@ import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 interface UseAnimeTrending {
   trending: Anime[] | undefined
-  useAnimeTrendingQuery: UseQueryResult<AnimeResponse, unknown>
+  useAnimeTrendingQuery: UseQueryResult<AnimeResponse | undefined>
 }
 
 export const useAnimeTrending = (): UseAnimeTrending => {
-  const useAnimeTrendingQuery = useQuery<AnimeResponse>({
+  const useAnimeTrendingQuery = useQuery({
     queryKey: ['trendingAnime'],
     queryFn: async () => await AnimeRepository.getTrending(),
   })

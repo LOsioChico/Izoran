@@ -4,11 +4,11 @@ import { AnimeRepository } from '../repositories'
 
 interface UseAnimePopular {
   popular: Anime[] | undefined
-  useAnimePopularQuery: UseQueryResult<AnimeResponse, unknown>
+  useAnimePopularQuery: UseQueryResult<AnimeResponse | undefined>
 }
 
 export const useAnimePopular = (): UseAnimePopular => {
-  const useAnimePopularQuery = useQuery<AnimeResponse>({
+  const useAnimePopularQuery = useQuery({
     queryKey: ['popularAnime'],
     queryFn: async () => await AnimeRepository.getPopular(),
   })
