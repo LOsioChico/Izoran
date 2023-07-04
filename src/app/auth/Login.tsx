@@ -2,6 +2,7 @@ import { AuthType, useAuthStore } from '@/infrastructure/state'
 import { BsDiscord, BsGoogle } from 'react-icons/bs'
 import { MainButton } from '../components'
 import { LoginForm } from './components/LoginForm'
+import { authService } from '@/auth'
 
 export const Login: React.FC = () => {
   const { setAuthType } = useAuthStore()
@@ -11,10 +12,22 @@ export const Login: React.FC = () => {
         <h1 className='mb-6 text-xl text-neutral-100'>Log In</h1>
 
         <div className='mb-6 flex w-full flex-col gap-4'>
-          <MainButton variant='white' Icon={BsDiscord}>
+          <MainButton
+            variant='white'
+            Icon={BsDiscord}
+            onClick={() => {
+              void authService.signInWithProvider('discord')
+            }}
+          >
             Log In with Discord
           </MainButton>
-          <MainButton variant='white' Icon={BsGoogle}>
+          <MainButton
+            variant='white'
+            Icon={BsGoogle}
+            onClick={() => {
+              void authService.signInWithProvider('google')
+            }}
+          >
             Log In with Google
           </MainButton>
         </div>

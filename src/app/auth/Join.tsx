@@ -2,6 +2,7 @@ import { AuthType, useAuthStore } from '@/infrastructure/state'
 import { BsDiscord, BsGoogle } from 'react-icons/bs'
 import { MdMailOutline } from 'react-icons/md'
 import { MainButton } from '../components'
+import { authService } from '@/auth'
 
 export const Join: React.FC = () => {
   const { setAuthType } = useAuthStore()
@@ -9,10 +10,22 @@ export const Join: React.FC = () => {
     <div className='w-80 rounded-lg border-2 border-dark bg-neutral-900 p-8'>
       <div className='flex w-full flex-col items-center justify-center gap-4 font-bold'>
         <h1 className='mb-2 text-xl text-neutral-100'>Join Izoran</h1>
-        <MainButton variant='white' Icon={BsDiscord}>
+        <MainButton
+          variant='white'
+          Icon={BsDiscord}
+          onClick={() => {
+            void authService.signInWithProvider('discord')
+          }}
+        >
           Continue with Discord
         </MainButton>
-        <MainButton variant='white' Icon={BsGoogle}>
+        <MainButton
+          variant='white'
+          Icon={BsGoogle}
+          onClick={() => {
+            void authService.signInWithProvider('google')
+          }}
+        >
           Continue with Google
         </MainButton>
         <MainButton
