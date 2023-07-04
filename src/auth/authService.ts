@@ -1,17 +1,34 @@
 import { supabase } from '@/infrastructure/database'
 
 export const authService = {
-  signUp: async ({ email, password }: SignUp) => {
-    const { error } = await supabase.auth.signUp({ email, password })
-    if (error != null) {
-      throw error
-    }
+  signUp: async ({ email, password, username }: SignUp) => {
+    const { error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { username } },
+    })
+    if (signUpError != null) throw signUpError
+
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    })
+    if (signInError != null) throw signInError
   },
 
   signIn: async ({ email, password }: SignIn) => {
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
+    })
+    if (error != null) {
+      throw error
+    }
+  },
+
+  signInWithProvider: async (provider: 'google' | 'discord') => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
     })
     if (error != null) {
       throw error
@@ -36,6 +53,7 @@ export const authService = {
 export interface SignUp {
   email: string
   password: string
+  username: string
 }
 
 export interface SignIn {
