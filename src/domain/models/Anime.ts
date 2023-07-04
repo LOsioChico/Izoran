@@ -18,12 +18,14 @@ export interface Anime {
   genres: string[]
   totalEpisodes: number | null
   duration: number | null
-  type: 'TV' | 'ONA'
+  type: 'TV' | 'ONA' | null
 }
 
-export interface AnimeRecentResponse extends AnimeResponse {
+export interface AnimeRecentResponse
+  extends Pick<AnimeResponse, 'currentPage' | 'hasNextPage'> {
   totalPage: number
   totalResults: number
+  results: AnimeRecent[]
 }
 
 export interface AnimeRecent
