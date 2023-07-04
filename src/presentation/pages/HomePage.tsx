@@ -1,3 +1,4 @@
+import { RecentEpisodes } from '@/app/containers'
 import { PopularBanner, TrendingNow } from '@/app/containers/Carousels'
 
 export const HomePage: React.FC = () => {
@@ -7,6 +8,7 @@ export const HomePage: React.FC = () => {
       <div className='relative'>
         <PopularBanner />
         <TrendingNow />
+        <RecentEpisodes />
       </div>
     </>
   )
