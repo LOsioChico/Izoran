@@ -35,11 +35,20 @@ export const useRegister = (): UseRegister => {
     try {
       await authService.signUp(data)
     } catch (error) {
-      if (error instanceof Error)
-        setError('email', {
-          type: 'manual',
-          message: error.message,
-        })
+      if (error instanceof Error) {
+        if (error.message.includes('username')) {
+          setError('username', {
+            type: 'manual',
+            message: 'Username already taken',
+          })
+        }
+        if (error.message.includes('registered')) {
+          setError('email', {
+            type: 'manual',
+            message: 'Email already registered',
+          })
+        }
+      }
     }
   }
 
