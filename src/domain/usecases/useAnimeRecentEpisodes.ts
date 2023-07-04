@@ -1,10 +1,10 @@
 import { useQuery, type UseQueryResult } from '@tanstack/react-query'
-import { type Anime, type AnimeResponse } from '../models/Anime'
+import { type AnimeRecent, type AnimeRecentResponse } from '../models/Anime'
 import { AnimeRepository } from '../repositories'
 
 interface UseAnimeRecentEpisodes {
-  recentEpisodes: Anime[] | undefined
-  useAnimeRecentEpisodesQuery: UseQueryResult<AnimeResponse | undefined>
+  recentEpisodes: AnimeRecent[] | undefined
+  useAnimeRecentEpisodesQuery: UseQueryResult<AnimeRecentResponse | undefined>
 }
 
 export const useAnimeRecentEpisodes = (): UseAnimeRecentEpisodes => {
