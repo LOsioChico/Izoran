@@ -9,7 +9,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
   return (
     <div
       key={anime.id}
-      className='group relative h-72 w-52 cursor-pointer select-none overflow-hidden rounded-md bg-dark'
+      className='group relative h-full w-full cursor-pointer select-none overflow-hidden rounded-md bg-dark'
       data-testid='anime-card'
     >
       <img
@@ -29,10 +29,18 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
           <span>{anime.releaseDate ?? 'No release date yet'}</span>,{' '}
           <span>{anime.genres[0]}</span>
         </p>
-        <div className='flex text-xs font-semibold text-gray-400'>
-          <p>{anime.type}</p>
-          <BsDot className='text-lg' />
-          <p>{anime.totalEpisodes} episodes</p>
+        <div className='flex items-center text-xs font-semibold text-gray-400'>
+          {anime.type === 'TV' ? <p>TV Show</p> : <p>{anime.type}</p>}
+
+          {anime.type !== null && anime.totalEpisodes !== null && (
+            <BsDot className='text-lg' />
+          )}
+
+          {anime.totalEpisodes === null ? (
+            <p> Ongoing</p>
+          ) : (
+            <p>{anime.totalEpisodes} episodes</p>
+          )}
         </div>
       </div>
       <div
