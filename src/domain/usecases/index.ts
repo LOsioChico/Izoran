@@ -1,4 +1,6 @@
+export * from './index'
 export * from './useAnimePopular'
 export * from './useAnimeRecentEpisodes'
+export * from './useAnimeSearch'
 export * from './useAnimeTrending'
 export * from './useProfile'
