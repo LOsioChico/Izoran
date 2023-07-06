@@ -18,7 +18,7 @@ export interface Anime {
   genres: string[]
   totalEpisodes: number | null
   duration: number | null
-  type: 'TV' | 'ONA' | null
+  type: 'TV' | 'ONA' | 'MOVIE' | null
 }
 
 export interface AnimeRecentResponse
@@ -43,6 +43,34 @@ export enum Status {
   Completed = 'Completed',
   NotYetAired = 'Not yet aired',
   Ongoing = 'Ongoing',
+}
+
+export interface AnimeSearchResponse
+  extends Pick<AnimeResponse, 'currentPage' | 'hasNextPage'> {
+  totalPage: number
+  totalResults: number
+  results: AnimeSearch[]
+}
+
+export interface AnimeSearch
+  extends Pick<
+    Anime,
+    | 'id'
+    | 'title'
+    | 'image'
+    | 'rating'
+    | 'color'
+    | 'genres'
+    | 'type'
+    | 'totalEpisodes'
+    | 'releaseDate'
+    | 'status'
+    | 'cover'
+  > {
+  popularity: number
+  currentEpisode: number
+  countryOfOrigin: string
+  description: string
 }
 
 export interface Title {
