@@ -18,10 +18,28 @@ export const AnimeCardCarousel: React.FC<CarouselProps> = ({
       <h1 className='mb-2 ml-2 select-none text-xl'>{title}</h1>
       <div className='relative'>
         <Swiper
-          slidesPerView={6}
           centeredSlides={true}
+          spaceBetween={20}
           centeredSlidesBounds={true}
           data-testid='carousel'
+          className='h-72'
+          breakpoints={{
+            1600: {
+              slidesPerView: 7,
+            },
+            1366: {
+              slidesPerView: 6,
+            },
+            1280: {
+              slidesPerView: 5,
+            },
+            960: {
+              slidesPerView: 4,
+            },
+            640: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {animes?.map((anime) => (
             <SwiperSlide key={anime.id}>
